@@ -49,4 +49,18 @@ public class PersonService {
 
         return person;
     }
+
+    public Person create(Person person) {
+        logger.info("Creating one Person");
+        return person;
+    }
+
+    public Person update(Person person){
+        logger.info("Updating one Person");
+        return person;
+    }
+
+    public void delete(String id){
+        logger.info("Delete one Person");
+    }
 }
