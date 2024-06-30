@@ -49,6 +49,18 @@ public class MathController {
 		}
 	}
 
+	// Método para calculo da média de 2 números
+	@RequestMapping(value = "med/{numberOne}/{numberTwo}", method = RequestMethod.GET)
+	public Double med(@PathVariable(value = "numberOne") String numberOne,
+					   @PathVariable(value = "numberTwo") String numberTwo) throws Exception {
+		if(!isNumeric(numberOne) || !isNumeric(numberTwo)){
+			throw new UnsupportedMathOperationException("Please set a numeric value");
+		}else{
+
+			return (convertToDouble(numberOne) + convertToDouble(numberTwo))/2;
+		}
+	}
+
 	private boolean isNumeric(String strNumber) {
 
 		if(strNumber == null) return false;
