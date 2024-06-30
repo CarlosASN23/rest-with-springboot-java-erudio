@@ -12,7 +12,8 @@ public class MathController {
 	
 	private static final String template = "Hello, %s!";
 	private final AtomicLong counter = new AtomicLong();
-	
+
+	// Método para realizações de soma
 	@RequestMapping(value = "/sum/{numberOne}/{numberTwo}", method = RequestMethod.GET)
 	public Double sum(@PathVariable(value = "numberOne") String numberOne,
 					  @PathVariable(value = "numberTwo") String numberTwo) throws Exception {
@@ -21,6 +22,21 @@ public class MathController {
 			throw new UnsupportedMathOperationException("Please set a numeric value");
 		}
 		return convertToDouble(numberOne) + convertToDouble(numberTwo);
+	}
+
+	// Método para realização de divisões
+	@RequestMapping(value = "div/{numberOne}/{numberTwo}", method = RequestMethod.GET)
+	public Double div(@PathVariable(value = "numberOne") String numberOne,
+					  @PathVariable(value = "numberTwo") String numberTwo) throws Exception {
+		if(!isNumeric(numberOne) || !isNumeric(numberTwo)){
+			throw new UnsupportedMathOperationException("Please set a numeric value");
+		} else if(convertToDouble(numberTwo) == 0){
+			throw  new UnsupportedMathOperationException("Don't exist division per 0");
+		}else{
+
+			return convertToDouble(numberOne) / convertToDouble(numberTwo);
+		}
+
 	}
 
 	private boolean isNumeric(String strNumber) {
