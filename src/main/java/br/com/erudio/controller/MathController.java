@@ -61,6 +61,16 @@ public class MathController {
 		}
 	}
 
+	// Método para calculo da raiz quadrada de um número
+	@RequestMapping(value = "raiz/{numberOne}", method = RequestMethod.GET)
+	public Double med(@PathVariable(value = "numberOne") String numberOne) throws Exception {
+		if(!isNumeric(numberOne)){
+			throw new UnsupportedMathOperationException("Please set a numeric value");
+		}else{
+			return Math.sqrt(convertToDouble(numberOne));
+		}
+	}
+
 	private boolean isNumeric(String strNumber) {
 
 		if(strNumber == null) return false;
