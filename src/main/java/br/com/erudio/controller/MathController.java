@@ -30,13 +30,23 @@ public class MathController {
 					  @PathVariable(value = "numberTwo") String numberTwo) throws Exception {
 		if(!isNumeric(numberOne) || !isNumeric(numberTwo)){
 			throw new UnsupportedMathOperationException("Please set a numeric value");
+		} else{
+			return convertToDouble(numberOne) * convertToDouble(numberTwo);
+		}
+	}
+
+	// Método para realização da multiplicação
+	@RequestMapping(value = "mult/{numberOne}/{numberTwo}", method = RequestMethod.GET)
+	public Double mult(@PathVariable(value = "numberOne") String numberOne,
+					  @PathVariable(value = "numberTwo") String numberTwo) throws Exception {
+		if(!isNumeric(numberOne) || !isNumeric(numberTwo)){
+			throw new UnsupportedMathOperationException("Please set a numeric value");
 		} else if(convertToDouble(numberTwo) == 0){
 			throw  new UnsupportedMathOperationException("Don't exist division per 0");
 		}else{
 
 			return convertToDouble(numberOne) / convertToDouble(numberTwo);
 		}
-
 	}
 
 	private boolean isNumeric(String strNumber) {
