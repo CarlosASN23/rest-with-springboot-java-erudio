@@ -1,1 +1,14 @@
-spring.application.name=rest-with-springboot-java-erudio
+spring:
+  datasource:
+    dbcp2:
+      driver-class-nmae: com.mysql.cj.jdbc.Driver
+      url: ${URL_ERUDIO}
+      username: ${USER_ERUDIO}
+      password: ${SENHA_DB}
+    jpa:
+      hibernate:
+        ddl-auto: update
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.MySQL8Dialect
+        show-sql: false
