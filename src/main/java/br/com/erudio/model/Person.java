@@ -50,7 +50,7 @@ public class Person implements Serializable {
         this.lastName = lastName;
     }
 
-    public String getAddress(String ruaDasAlfandegas) {
+    public String getAddress() {
         return address;
     }
 

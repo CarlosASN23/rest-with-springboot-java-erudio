@@ -1,10 +1,9 @@
 spring:
   datasource:
-    dbcp2:
-      driver-class-nmae: com.mysql.cj.jdbc.Driver
-      url: ${URL_ERUDIO}
-      username: ${USER_ERUDIO}
-      password: ${SENHA_DB}
+    driver-class-nmae: com.mysql.cj.jdbc.Driver
+    url: ${URL_ERUDIO}
+    username: ${USER_ERUDIO}
+    password: ${SENHA_DB}
     jpa:
       hibernate:
         ddl-auto: update
